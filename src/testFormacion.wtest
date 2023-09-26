@@ -1,0 +1,29 @@
+import vagones.*
+import formaciones.*
+
+describe "Formacion"{
+	const formacion = new Formacion()
+	const vagonP1 = new Pasajero(ancho=3, largo=8, tieneBanios=true)
+	const vagonP2 = new Pasajero(ancho=3, largo=8, tieneBanios=true)
+	const vagonP3 = new Pasajero(ancho=3, largo=8, tieneBanios=true)
+	const vagonP4 = new Pasajero(ancho=3, largo=8, tieneBanios=true)
+	const vagonC1 = new Carga(cargaMaximaIdeal=500, maderas=12)
+	const vagonC2 = new Carga(cargaMaximaIdeal=500, maderas=12)
+	const vagonC3 = new Carga(cargaMaximaIdeal=500, maderas=12)
+	const vagonC4 = new Carga(cargaMaximaIdeal=500, maderas=12)
+	
+	method initialize(){
+		formacion.agregarVagon(vagonP1)
+		formacion.agregarVagon(vagonP2)
+		formacion.agregarVagon(vagonP3)
+		formacion.agregarVagon(vagonP4)
+		formacion.agregarVagon(vagonC1)
+		formacion.agregarVagon(vagonC2)
+		formacion.agregarVagon(vagonC3)
+		formacion.agregarVagon(vagonC4)
+	}
+	
+	test "La formacion esta organizada"{
+		assert.that(formacion.estaOrganizada())
+	}
+}

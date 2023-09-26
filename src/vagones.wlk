@@ -18,7 +18,17 @@ class Pasajero{
 	
 	method pesoMaximo(){
 		return 2000 + 80 * self.cantidadPasajerosMaxima() + self.cargaMaxima()
-	}	
+	}
+	
+	method esPopular(){
+		return self.cantidadPasajerosMaxima()>50
+	}
+	
+	method esCarguero()= self.pesoMaximo()>=1000
+	
+	method hacerMantenimiento(){
+		estaOrdenado = true
+	}
 }
 
 
@@ -37,6 +47,12 @@ class Carga{
 	}
 	
 	method tieneBanios() = false
+	
+	method esPopular() = self.cantidadPasajerosMaxima()>50
+	
+	method hacerMantenimiento(){
+		maderas = 0.max(maderas-2)
+	}
 }
 
 
@@ -55,4 +71,8 @@ class Dormitorio{
 	}
 	
 	method tieneBanios() = true
+	
+	method esPopular() = self.cantidadPasajerosMaxima()>50
+	
+	method hacerMantenimiento(){}
 }
