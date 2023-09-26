@@ -1,11 +1,11 @@
-class pasajero{
-	const property largo
+class Pasajero{
 	const property ancho
+	const property largo
 	const property tieneBanios
-	const property estaOrdenado
+	var property estaOrdenado = true
 	
 	method cantidadPasajerosMaxima(){
-		return if(estaOrdenado){self.cantidadPasajerosOrdenado()}else{self.cantidadPasajerosOrdenado()-15}
+		return if(estaOrdenado){self.cantidadPasajerosOrdenado()}else{0.max(self.cantidadPasajerosOrdenado()-15)}
 	}
 	
 	method cantidadPasajerosOrdenado(){
@@ -18,19 +18,18 @@ class pasajero{
 	
 	method pesoMaximo(){
 		return 2000 + 80 * self.cantidadPasajerosMaxima() + self.cargaMaxima()
-	}
-	
+	}	
 }
 
 
-class carga{
+class Carga{
 	const property cargaMaximaIdeal
 	var property maderas
 	
 	method cantidadPasajerosMaxima() = 0
 	
 	method cargaMaxima(){
-		return cargaMaximaIdeal - (maderas * 400)
+		return 0.max(cargaMaximaIdeal - (maderas * 400))
 	}
 	
 	method pesoMaximo(){
@@ -41,7 +40,7 @@ class carga{
 }
 
 
-class dormitorio{
+class Dormitorio{
 	const property compartimientos
 	var property camas
 	
