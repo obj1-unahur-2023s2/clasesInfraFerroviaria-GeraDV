@@ -16,6 +16,10 @@ class Formacion {
 		return vagones.all({v => v.esCarguero()})
 	}
 	
+	method realizarMantenimientoVagones(){
+		vagones.forEach({v => v.hacerMantenimiento()})
+	}
+	
 	method dispersionDePesos(){
 		return self.pesoMaximo() - self.pesoMinimo()
 	}
@@ -53,6 +57,6 @@ class Formacion {
 	}
 	
 	method estaOrganizada(){
-		return not (1..vagones.size()-1).any({i => vagones.get(i).cantidadPasajerosMaxima() > 0 and vagones.get(i-1).cantidadPasajerosMaxima() == 0})
+		return not (1..vagones.size()-1).any({i => vagones.get(i).esDePasajeros() and  not vagones.get(i-1).esDePasajeros()})
 	}
 }

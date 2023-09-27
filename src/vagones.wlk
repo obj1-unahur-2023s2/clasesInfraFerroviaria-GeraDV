@@ -29,6 +29,8 @@ class Pasajero{
 	method hacerMantenimiento(){
 		estaOrdenado = true
 	}
+	
+	method esDePasajeros() = self.cantidadPasajerosMaxima() > 0
 }
 
 
@@ -53,6 +55,8 @@ class Carga{
 	method hacerMantenimiento(){
 		maderas = 0.max(maderas-2)
 	}
+	
+	method esDePasajeros() = self.cantidadPasajerosMaxima() > 0
 }
 
 
@@ -75,4 +79,6 @@ class Dormitorio{
 	method esPopular() = self.cantidadPasajerosMaxima()>50
 	
 	method hacerMantenimiento(){}
+	
+	method esDePasajeros() = self.cantidadPasajerosMaxima() > 0
 }
